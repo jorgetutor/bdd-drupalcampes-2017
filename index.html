@@ -1,0 +1,905 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>BDD: Behavior Driven Development</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="sponsor">
+			<img src="assets/images/drupalcamp2017-logo.svg"/><span>BDD: Behavior Driven Development <strong>@jltutor</strong></span>
+		</div>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- Cover -->
+				<section data-background-transition="slide" data-background="assets/images/drupalcamp-bg.jpg" class="left">
+					<div class="left">
+						<img src="assets/images/drupalcamp2017-logo.svg"/>
+					</div>
+					<div class="drupalcamp-label-blue left">
+						<h1>BDD</h1>
+						<em>Behavior Driven Development</em>
+					</div>
+
+					<div class="drupalcamp-label-pink left xsmall">
+						Jorge Tutor /
+						<span class="small">@jltutor</span>
+					</div>
+
+					<div class="drupalcamp-label-blue left xsmall inline-block" style="float:right">
+						#drupalcamp2017
+					</div>
+
+				</section>
+
+				<!-- Personal presentation -->
+				<section>
+					<div><img src="assets/images/jorgetutor-square.jpg" class="profile-photo"></div>
+					<h4>Jorge Tutor</h4>
+					<div class="xsmall"><em>Software Project Manager & Drupal Senior Developer</em></div>
+					<div class="small"><a href="https://twitter.com/jltutor" target="_blank">@jltutor</a></div>
+					<p class="xsmall"><a href="https://drupal.org/u/gedur" target="_blank">drupal.org/u/gedur</a><br><span class="xsmall">Module maintainer: Ga Push, Commerce Google Analytics, IP, Misery...</span></p>
+					<img src="assets/images/metadrop-logo.svg" class="metadrop-logo">
+				</section>
+
+				<!-- START -->
+
+				<section>
+					<p><em>Behavior Driven Development</em></p>
+				</section>
+
+				<section>
+					<p class="xsmall left"><em>In this session we will talk about:</em></p>
+					<ol>
+						<li>Introduction to BDD</li>
+						<li>How projects are built</li>
+						<li>Ensuring product quality</li>
+						<li>Speaking the same language as the client</li>
+						<li>The BDD methodology</li>
+						<li>The integration with Drupal</li>
+						<li>Final Example</li>
+					</ol>
+				</section>
+
+				<section>
+					<em>Chapter 1</em>
+					<h2>Introduction to BDD</h2>
+				</section>
+
+				<section>
+					<h3>What is BDD</h3>
+					<p class="xsmall">Software development process that emerged from test-driven development (TDD).</p>
+					<p class="small">An idea about how software development should be managed by both <strong class="featured">business interests</strong> and <strong class="featured">technical insight</strong>.</p>
+					<p class="xsmall">It combines the general techniques and principles of TDD with ideas from domain-driven design and object-oriented analysis and design to provide software development and management teams with shared tools and a shared process to collaborate on software development.</p>
+				</section>
+
+				<section>
+					<img src="assets/images/communicate-2028004_960_720-edited.png" width="30%">
+					<p>clients and users have needs<br> and they want systems that help them to achive them</p>
+				</section>
+
+				<section>
+					<img src="assets/images/building-blocks.png" width="30%">
+					<p>The functionality of an application<br> is a set of all system features</p>
+				</section>
+
+				<section>
+					<img src="assets/images/cube-2026724_960_720.png" width="20%">
+					<p>The <strong class="featured">sum of features</strong> makes <strong>the project</strong></p>
+				</section>
+
+				<section>
+					<em>Chapter 2</em>
+					<h2>How projects are built</h2>
+				</section>
+
+				<section>
+					<h3>The idea</h3>
+					<em class="small">Corporative site, Newspaper, E-Commerce, Social network...</em>
+					<p><img src="assets/images/computer-2023252_960_720.png" width="30%"></p>
+				</section>
+
+				<section>
+					<h3>The Client</h3>
+					<em class="small">Stakeholders</em>
+					<p><img src="assets/images/client-1295901__340.png" width="30%"></p>
+				</section>
+
+				<section>
+					<h3>The development team</h3>
+					<div><em>Site Builders, Frontends, Backends...</em></div>
+					<img src="assets/images/characters.png" width="60%">
+				</section>
+
+				<section>
+					<h3>Reliable Set of Components</h3>
+					<div><em>Modules, Libraries, Themes...</em></div>
+					<img src="assets/images/building-blocks-2026061_960_720.png">
+				</section>
+
+				<section>
+					<h3>Custom Components</h3>
+					<div><em>Modules, Libraries, Themes...</em></div>
+					<img src="assets/images/cogwheel-575569_960_720.png" width="20%"/>
+				</section>
+
+				<section>
+					<em>Chapter 3</em>
+					<h2>Ensuring product quality</h2>
+					<em>Introduction to testing</em>
+				</section>
+
+				<section>
+					<h3>Why to test?</h3>
+					<p>Ensure components quality, check especifications, avoid regressions...</p>
+					<img src="assets/images/car-2029640_960_720.png" width="10%">
+				</section>
+
+				<section>
+					<h3>When should we test</h3>
+					<p><strong>After</strong> Development <span class="xsmall">vs</span> <strong>Before</strong> Development</p>
+					<div><img src="assets/images/bluevsred.jpg" width="80%"></div>
+				</section>
+
+				<section>
+					<p><em>Testing at the <strong>end</strong> of the <strong>project</strong></em></p>
+					<img src="assets/graphs/testing-last.png" />
+				</section>
+
+				<section>
+					<p><em>Testing at the <strong>end</strong> of <strong>each sprint</strong></em></p>
+					<img src="assets/graphs/testing-sprint-last.png" />
+				</section>
+
+				<section>
+					<p><em>Testing at the <strong>begining</strong> of <strong>each sprint</strong></em></p>
+					<p class="small featured">Test Driven Development (TDD)</p>
+					<img src="assets/graphs/testing-sprint-first.png" />
+				</section>
+
+				<section>
+					<h3>How to test functionality</h3>
+					<img src="assets/graphs/testing-pyramid.png"/>
+				</section>
+
+				<section>
+					<h4>Unit testing</h4>
+					<p class="xsmall"><i>Components of a software are tested, ...each unit of the software performs as designed.<br/> A unit is the smallest testable part of software.</i></p>
+					<pre><code data-trim data-noescape class="small">
+class StackTest extends TestCase {
+  public function testPushAndPop()
+  {
+      $stack = [];
+      $this->assertEquals(0, count($stack));
+
+      array_push($stack, 'foo');
+      $this->assertEquals('foo', $stack[count($stack)-1]);
+      $this->assertEquals(1, count($stack));
+
+      $this->assertEquals('foo', array_pop($stack));
+      $this->assertEquals(0, count($stack));
+  }
+}
+  </code></pre>
+				</section>
+				<section>
+					<h4>Integration testing</h4>
+					<p class="small"><i>Individual software modules are combined and tested as a group.<br/> After unit testing.</i></p>
+					<img src="assets/images/gear-2025889_960_720.png" width="50%"/>
+				</section>
+
+				<section>
+					<h4>Functional testing</h4>
+					<p class="small"><i>Test the features/functionality of the system or Software, should cover all the scenarios including failure paths and boundary cases.</i></p>
+					<pre><code data-trim data-noescape class="small">
+class Breadcrumb404Test extends BrowserTestBase {
+  ...
+  public function testBreadcrumbOn404Pages() {
+    ...
+    $this->drupalGet('/not-found-2');
+    $next_count = count($this->getBreadcrumbCacheEntries());
+    $this->assertEquals($base_count, $next_count);
+
+    $this->drupalGet('/not-found-3');
+    $next_count = count($this->getBreadcrumbCacheEntries());
+    $this->assertEquals($base_count, $next_count);
+  }
+  ...
+}
+  </code></pre>
+				</section>
+
+				<section>
+					<p><em>Wait!!!</em></p>
+					<p><em>I <strong class="featured">just</strong> use components tested by unit tests, It's enough!!!</em></p>
+					<p class="xsmall"><em>If all the pieces runs ok, then the site will run ok.</em></p>
+					<div><img src="assets/images/comic-characters-2022709_960_720.png" width="10%"></div>
+
+				</section>
+
+				<section>
+					<div><em>2 unit tests. 0 integration tests.</em></div>
+					<img src="assets/gifs/testing-unit-integration.gif" width="40%"/>
+				</section>
+
+				<section>
+					<div><em>2 unit tests. 0 integration tests.</em></div>
+					<img src="assets/gifs/testing-unit-integration-1.gif" width="40%"/>
+				</section>
+
+				<section>
+					<div><em>2 unit tests. 0 integration tests.</em></div>
+					<img src="assets/gifs/testing-unit-integration-2.gif" width="40%"/>
+					<p class="xsmall">...view more in <a href="https://www.reddit.com/r/ProgrammerHumor/search?q=unit" target="_blank">reddit.com/r/ProgrammerHumor/search?q=unit</a></p>
+				</section>
+
+				<section>
+					<p><em>All unit, integration,... tests passsed but,<br/> Have we created the <strong class="featured">right product</strong>?</em></p>
+					<p class="xsmall">Have we also <strong>failed</strong>?</p>
+				</section>
+
+				<section>
+					<h3>Verification <span class="xsmall">vs</span> Validation</h3>
+					<table>
+						<tr>
+							<td class="small">Determine whether they <strong>meet</strong> the specified requirements.</td>
+							<td class="small">Determine whether it <strong>satisfies</strong> specified business requirements.</td>
+						</tr>
+						<tr>
+							<td><em>Are we building the<br/> <strong class="featured">product right?</strong></em></td>
+							<td><em>Are we building the<br/> <strong class="featured">right product?</strong></em></td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<em>Chapter 4</em>
+					<h2>Speaking the same language <br/>as the client</h2>
+				</section>
+
+				<section>
+					<h3>What client says</h3>
+					<p>Project specifications/requirements</p>
+					<p class="xsmall"><em>System perspective, just caracteristics, no user interaction</em></p>
+					<img src="assets/images/checklist-2024181_960_720.png" width="20%">
+				</section>
+
+				<section>
+					<h3>What developpers need</h3>
+					<p class="xsmall"><em>User workflow perspective, mockups, user interaction, edge use cases</em></p>
+					<img src="assets/graphs/mockups-workflow.png" width="90%">
+				</section>
+
+				<section>
+					<img src="assets/images/simpsons-think-children-edited.jpg">
+				</section>
+
+				<section>
+					<h3>What users need</h3>
+					<p class="xsmall"><em>User centered design</em></p>
+					<img src="assets/images/boy-2022558_960_720.png" width="20%">
+				</section>
+
+				<section>
+					<em>Let's use the <strong class="featured">same language</strong></em>
+				</section>
+
+				<section>
+					<h3>User Stories</h3>
+					<p class="xsmall"><em>User perspective, focused in user value</em></p>
+					<p style="text-align:left;max-width:300px;margin:0 auto">
+						As a <strong>{ who }</strong> <br/>
+						I want to <strong>{ what }</strong><br/>
+						so that <strong>{ why }</strong> <br/>
+					</p>
+				</section>
+
+				<section>
+					<h4>User Stories: Examples</h4>
+					<p class="left xsmall">
+						As an <em class="featured">anonymous</em> I want to <em class="featured">register into the site</em> so that <em class="featured">I can access to the private section</em>
+					</p>
+					<p class="left xsmall">
+						As an <em class="featured">editor</em> I want to <em class="featured">create articles</em> so that <em class="featured">the site will have new content</em>
+					</p>
+					<p class="left xsmall">
+						As an <em class="featured">editor</em> I want to <em class="featured">edit articles</em> so that <em class="featured">I can update them and fix mistakes</em>
+					</p>
+					<p class="left xsmall">
+						As a <em class="featured">manager</em> I want to <em class="featured">cancel user accounts</em> so that <em class="featured">I can keep the accounts under control</em>
+					</p>
+					<p class="left xsmall">
+						As a <em class="featured">sales manager</em> I want to <em class="featured">download sales reports in csv</em> so that <em class="featured">I can work with them later</em>
+					</p>
+				</section>
+
+				<section>
+					<h3>Use Cases</h3>
+					<p class="xsmall"><em>Describe concrete interactions for each User Story. Acceptance criteria.</em></p>
+					<p class="left xsmall">
+						As an <em class="featured">anonymous</em> I want to <em class="featured">register into the site</em> so that <em class="featured">I can access to the private section</em>
+					</p>
+					<ul class="xsmall">
+						<li>Given I am an anonymous user and I don't have an account</li>
+						<li>When I go to user register</li>
+						<li>I should see the fields: name, surname, email and password</li>
+						<li>I fill name with "TestName"</li>
+						<li>...</li>
+						<li>Then I press Create account</li>
+						<li>Then I should see "Welcome TestName"</li>
+						<li>An account for "TestName" has been created</li>
+					</ul>
+				</section>
+
+				<section>
+					<em>A <strong class="featured">user story</strong> is defined by a set of <strong class="featured">use cases</strong></em>
+				</section>
+
+				<section>
+					<h4>Use Case anatomy</h4>
+					<div><img src="assets/graphs/usecase-flowdiagram-complete.png"/></div>
+					<ol class="xsmall">
+						<li>Preconditions</li>
+						<li>Actions</li>
+						<li>Alternative states</li>
+						<li>Error states</li>
+						<li>Postconditions</li>
+					</ol>
+				</section>
+
+				<section>
+					<h4>Use Case anatomy example</h4>
+					<table>
+						<tr class="bg-light">
+							<td class="small">Preconditions</td>
+							<td class="xsmall">Given I am an anonymous user</td>
+						</tr>
+						<tr >
+							<td class="small">Actions</td>
+							<td class="xsmall">
+								When I go to user register<br>
+								I should see the fields: name, surname, email and password<br>
+								I fill name with "TestName"<br>
+								...<br>
+								I press "Create account"
+							</td>
+						</tr>
+						<tr class="bg-light">
+							<td class="small">Postconditions</td>
+							<td class="xsmall">
+								An account for "TestName" has been created
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h4>Use Case Alternative steps</h4>
+					<p class="small">Along the case can appear alternatives to the main path</p>
+					<img src="assets/graphs/usecase-flowdiagram.png" width="600"/>
+				</section>
+
+				<section>
+					<h4>Use Case Alternative steps example</h4>
+					<p class="left xsmall">
+						As an <em class="featured">anonymous</em> I want to <em class="featured">register into the site</em> so that <em class="featured">I can access to the private section</em>
+					</p>
+					<p>...</p>
+					<div class="width-medium">
+					<p class="xsmall left">
+						4. I select "<u>individual</u>" as user type<br>
+						5. I fill user name with "Peter"<br>
+						... <br>
+						A individual account for "Peter" has been created
+					</p>
+					<hr>
+					<p class="xsmall left">
+						4.A. I select "<u>company</u>" as user type<br>
+						5.A. I fill company name with "Drupal"<br>
+						... <br>
+						A company account for "Drupal" has been created
+					</p>
+					<div>
+				</section>
+
+				<section>
+					<h4>Use case error states</h3>
+					<p class="small">Alternative steps can finalize in error steps</p>
+					<div><img src="assets/graphs/usecase-flowdiagram-sunnyday.png" width="50%"/></div>
+					<p class="small"><img src="assets/images/sun.png" height="60"/><em>Sunny Day: use case without errors</em></p>
+				</section>
+
+				<section>
+					<h4>Use case error states example</h4>
+					<div class="width-medium">
+						<p class="xsmall left">
+							4. I select "individual" as user type<br>
+							5. I fill user name with "Peter"<br>
+							6. I fill mail with "<strong class="featured">FAKE@@MAIL..cc</strong>"<br>
+							... <br>
+							10. And I press "Create Account"
+						</p>
+						<p class="small featured">Then I should see "email field is not valid"</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>Optimizing Use case escenarios</h4>
+					<p class="xsmall"><em>Writting use cases can be boring, use estrategies to optimize (without losing readability).</em><p>
+					<p><img src="assets/graphs/usecase-flowdiagram-tree.png" width="300px"/></p>
+				</section>
+
+				<section>
+					<div><img src="assets/images/boy-2022551_960_720.png" width="10%"></div>
+					<em>I wish there was a way to automate <strong class="featured">test</strong> use cases</em>
+
+				</section>
+
+				<section>
+					<em>Chapter 5</em>
+					<h2>The BDD Metodology</h2>
+				</section>
+
+				<section>
+					<h3>BDD Methodology</h3>
+					<ol class="small">
+						<li>Define a test set for the user story</li>
+						<li>Make the test <strong class="featured">fail</strong></li>
+						<li>Then implement the unit</li>
+						<li>Finally verify that the implementation of the unit makes the tests <strong class="featured">succeed</strong></li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Gherkin language</h3>
+					<pre><code data-trim data-noescape class="behat small">
+	Story: As a store owner
+	I want to add items back to stock when they're returned
+	so that I can keep track of stock
+
+	Scenario 1: Refunded items should be returned to stock
+	Given that a customer previously bought a black sweater from me
+	And I have three black sweaters in stock.
+	When he returns the black sweater for a refund
+	Then I should have four black sweaters in stock.
+
+	Scenario 2: Replaced items should be returned to stock
+	Given that a customer previously bought a blue garment from me
+	And I have two blue garments in stock
+	And three black garments in stock.
+	When he returns the blue garment for a replacement in black
+	Then I should have three blue garments in stock
+	And two black garments in stock.
+</code></pre>
+<p class="xxsmall">Gherkin language syntax example. The term Gherkin, however, is specific to the Cucumber, JBehave and <strong>Behat</strong> software tools.</p>
+				</section>
+
+				<section>
+					<img src="assets/images/behat.png">
+					<div class="small"><em>A php framework for autotesting your business expectations.</em></div>
+					<p class="xsmall">Behat is an open source Behavior-Driven Development framework for PHP. It is a tool to support you in delivering software that matters through continuous communication, deliberate discovery and test-automation.</p>
+					<p><a href="http://behat.org/">behat.org</a><p>
+				</section>
+
+				<section>
+					<em>Chapter 6</em>
+					<h2>The Integration with Drupal</h2>
+				</section>
+
+				<section>
+					<h3>Behat instalation</h3>
+					<pre><code data-trim data-noescape class="small">
+# Create the directory:
+$ mkdir /opt/behat && cd /opt/behat
+
+# Install with composer:
+$ composer require drupal/drupal-extension
+
+# Symbolic link to $PATH
+$ ln -s /opt/behat/vendor/bin/behat /usr/local/bin/behat
+
+# Check version:
+$ behat --version
+					</pre></code>
+					<p class="xxsmall">Instalation for Drupal projects</p>
+				</section>
+
+				<section>
+					<h3>Behat files & folders</h3>
+					<table class="small">
+						<tr>
+							<td>config</td>
+							<td>behat.yml</td>
+						</tr>
+						<tr>
+							<td>Contexts</td>
+							<td>/bootstrap (folder)</td>
+						</tr>
+						<tr>
+							<td>Features</td>
+							<td>/features (folder)</td>
+						</tr>
+					</table>
+					<p class="xxsmall">Detailed instalation and configuration see <a href="" target="_blank">this post</a></p>
+				</section>
+
+				<section>
+					<h4>Behat files & folders structure</h4>
+					<pre><code data-trim data-noescape class="sdmall">
+Drupal
+└─ sites/
+   ├─ all/
+   │  └─ test/
+   │     └─ behat/
+   │        ├─ features/
+   │        │  ├─ anonymous.access.feature ← User Stories
+   │        │  └─ *.feature
+   │        │
+   │        └─ bootstrap/
+   │           ├─ FeatureContext.php ← Base Context
+   │           └─ ... ← Other Contexts
+   └─ default/
+       └─ behat.yml ← Conf yml
+
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Behat execution</h3>
+					<pre><code data-trim data-noescape class="small">
+# Go to drupal docroot:
+$ cd /var/vhost/mysproject/docroot
+
+# Execute behat:
+$ behat --config sites/default/behat.yml --tags="register"
+
+					</pre></code>
+					<p class="xxsmall">Execution for Drupal project</p>
+				</section>
+
+				<section>
+					<h3>Behat processing</h3>
+					<pre><code data-trim data-noescape class="xxsmall">
+								@check @anonymous @statistics
+								Scenario: Check, Statistics and Statistics menu                                       # /vagrant/vhosts/worldarchery/docroot/sites/all/tests/behat/features/worldarchery/user_anonymous.feature:71
+						    Given I am an anonymous user                                                        # FeatureContext::assertAnonymousUser()
+						    And I go to "/"                                                                     # Drupal\DrupalExtension\Context\MinkContext::visit()
+						    When I click "Statistics" in the "main menu"                                        # Drupal\DrupalExtension\Context\MinkContext::assertRegionLinkFollow()
+						    Then the url should match "/statistics"                                             # Drupal\DrupalExtension\Context\MinkContext::assertUrlRegExp()
+						    And I should see "Statistics" in the "statistics menu pane full"                    # Drupal\DrupalExtension\Context\MinkContext::assertRegionText()
+						    And I should see the link "World Cup Ranking" in the "panel column last"            # Drupal\DrupalExtension\Context\MinkContext::assertLinkRegion()
+						    And I should see the link "World Ranking" in the "panel column last"                # Drupal\DrupalExtension\Context\MinkContext::assertLinkRegion()
+						    And I should see the link "World Records" in the "panel column last"                # Drupal\DrupalExtension\Context\MinkContext::assertLinkRegion()
+						    And I should see the link "Longines Prize for Precision" in the "panel column last" # Drupal\DrupalExtension\Context\MinkContext::assertLinkRegion()
+						    When I click "World Cup Ranking" in the "panel column last"                         # Drupal\DrupalExtension\Context\MinkContext::assertRegionLinkFollow(
+								  ...
+					</pre></code>
+					<p class="xxsmall">Example of execution steps</p>
+				</section>
+
+				<section>
+					<h3>Behat results</h3>
+					<pre><code data-trim data-noescape class="smal">
+						48 scenarios (48 passed)
+						773 steps (773 passed)
+						26m47.39s (77.81Mb)
+					</pre></code>
+					<p class="xxsmall">Example of sucess execution</p>
+				</section>
+
+				<section>
+					<em>Chapter 7</em>
+					<h2>Final example</h2>
+				</section>
+
+				<section>
+					<h3>User Stories</h3>
+					<p class="xsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">register into the site</strong> so that <strong class="featured">I can join the program</strong></em></p>
+					<p class="xsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">pull data from linkedin while I'm registering into the site</strong> so that <strong class="featured">I can do it easier</strong></em></p>
+				</section>
+
+				<section>
+					<h4>The feature file</h4>
+					<p class="xsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">register into the site</strong> so that <strong class="featured">I can join the program</strong></em></p>
+					<hr/>
+					<div class="cols-2">
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
+						<div class="col-70">
+							<div class="xxsmall">file: anonymous.user_register.feature</div>
+							<pre><code data-trim class="xsmall">
+							Feature: As an anonymous
+								I want to register into the site
+								so that I can join the program
+
+							@TODO: Scenario SunnyDay
+							@TODO: Scenario Alternative 1..N
+							@TODO: Scenario Errors 1..N
+							</nav>
+							</code></pre>
+						</div>
+
+					</div>
+
+				</section>
+
+				<section>
+					<h4>Sunny day</h4>
+					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">register into the site</strong> so that <strong class="featured">I can join the program</strong></em></p>
+					<hr/>
+					<div class="cols-2">
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
+						<div class="col-70">
+							<div class="xxsmall">file: anonymous.user_register.feature</div>
+							<pre><code data-trim class="small">
+							@anonymous @user-register @sunnyday
+							Scenario: Fills all fields
+							  and joins the program as invididual
+
+							  # Preconditions:
+							  Given I am an anonymous user
+							    And I go to "/user/register"
+
+							  # Actions:
+							  Then I should see "Type"
+							   And I should see "Name"
+							   And I should see "Surname"
+							   And I should see "Why do you want to join the program?"
+							   And I should see "I accept the terms & conditions"
+
+							  Then I select "individual" from "Type"
+							  Then I fill "Name" with "TestName"
+							   And I fill "Surname" with "TestSurname"
+							   And I fill "Why do you want to join the program?" with "Some text..."
+							   And I press "I accept the terms & conditions"
+
+							  When I click "Create Account"
+							  Then I should see "Welcome to the program!"
+
+							  # Posconditions:
+							  Then an individual account has been created for "TestName"
+								...
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h4>Alternative steps</h4>
+					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">register into the site</strong> so that <strong class="featured">I can join the program</strong></em></p>
+					<hr/>
+					<div class="cols-2">
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
+						<div class="col-70">
+							<div class="xxsmall">file: anonymous.user_register.feature</div>
+							<pre><code data-trim class="small">
+							@anonymous @user-register @variant
+							Scenario: Fills all fields
+							  and joins the program as company
+
+							  # Preconditions:
+							  Given I am an anonymous user
+						      And I go to "/user/register"
+
+							  # Actions:
+							  Then I select "company" from "Type"
+							   And I should not see "Surname"
+							   And I fill "Name" with "TestName"
+							   And I fill "Why do you want to join the program?" with "Some text..."
+							   And I press "I accept the terms & conditions"
+
+							  When I click "Create Account"
+							  Then I should see "Welcome to the program!"
+
+							  # Posconditions:
+							  Then a company account has been created for "TestName"
+								...
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h4>Error steps</h4>
+					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">register into the site</strong> so that <strong class="featured">I can join the program</strong></em></p>
+					<hr/>
+					<div class="cols-2">
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
+						<div class="col-70">
+							<div class="xxsmall">file: anonymous.user_register.feature</div>
+							<pre><code data-trim class="small">
+@anonymous @user-register @error
+Scenario: Fails filling fields
+
+  # Preconditions:
+  Given I am an anonymous user
+    And I go to "/user/register"
+
+  # Actions:
+  When I click "Create Account"
+
+  Then I should see the message
+	 "The field name is required"
+   And I should see the message
+	 "The field surname is required"
+   And I should see the message
+	 "The field Why do you want to join the program? is required"
+   And I should see the message
+	 "The field I accept the terms & conditions is required"
+
+  Then I fill "Why do you want to join the program?"
+	 with "Some short text..."
+
+  When I click "Create Account"
+
+  Then I should see the message "The field Why do you want to join the program?
+	 should have 300 caracters at least"
+   ...
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<em>Let's try the other one</em>
+				</section>
+
+				<section>
+					<h4>The feature file</h4>
+					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">pull data from linkedin while I'm registering into the site</strong> so that <strong class="featured">I can do it easier</strong></em></p>
+					<hr/>
+					<div class="cols-2">
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
+						<div class="col-70">
+							<div class="xxsmall">file: anonymous.user_register.linkedin.feature</div>
+							<pre><code data-trim class="xsmall">
+							Feature: As an anonymous
+							  I want to pull data from linkedin while I'm registering into the site
+							  so that I can do it easier
+
+							@TODO: Scenario SunnyDay
+							@TODO: Scenario Alternative 1..N
+							@TODO: Scenario Errors 1..N
+							</nav>
+							</code></pre>
+						</div>
+
+					</div>
+
+				</section>
+
+				<section>
+					<h4>Sunny day</h4>
+					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">pull data from linkedin while I'm registering into the site</strong> so that <strong class="featured">I can do it easier</strong></em></p>
+					<hr/>
+					<div class="cols-2">
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
+						<div class="col-70">
+							<div class="xxsmall">file: anonymous.user_register.linkedin.feature</div>
+							<pre><code data-trim class="small">
+								@anonymous @user-register @linkedin @sunnyday
+								Scenario: Fills all fields with linkedin data
+								  and joins the program as invididual
+
+								  # Preconditions:
+								  Given I am an anonymous user
+								    And I go to "/user/register"
+								    And I have a linkedin account
+
+								  # Actions:
+								  When I click "Pull data from Linkedin"
+								   And I login in Linkedin and give permissions
+
+								   Then I should see the field "Name"
+								     filled with "LinkedinTestName"
+								    And I should see the field "Surname"
+								     filled with "LinkedinTestSurName"
+
+								  Then I select "individual" from "Type"
+								   And I fill "Why do you want to join the program?"
+								    with "Some text..."
+								   And I press "I accept the terms & conditions"
+
+								  When I click "Create Account"
+								  Then I should see "Welcome to the program!"
+
+								  # Posconditions:
+								  Then an individual account has been created
+								    for "LinkedinTestName"
+								  ...
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h4>Alternative Steps</h4>
+					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">pull data from linkedin while I'm registering into the site</strong> so that <strong class="featured">I can do it easier</strong></em></p>
+					<hr/>
+					<p>Company? Incomplete profile?</p>
+				</section>
+
+				<section>
+					<h4>Error Steps</h4>
+					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">pull data from linkedin while I'm registering into the site</strong> so that <strong class="featured">I can do it easier</strong></em></p>
+					<hr/>
+					<p>No linkedin account? No privileges granted?</p>
+				</section>
+
+				<section>
+					<img src="assets/images/boy-2022547_960_720.png" width="20%"/>
+					<p><em>Easy?</em></p>
+				</section>
+
+				<section>
+					<img src="assets/images/pen-2026684_960_720.png" width="30%"/>
+					<p><em>Willing to write your own BDD tests?</em></p>
+				</section>
+
+				<section>
+					<h3>Any questions?</h3>
+					<pre><code data-trim data-noescape class="css">
+						Given I am an attendee
+						  And I am brave enough to ask a question
+
+						When I ask for the microphone
+						 And I ask question to the speaker
+
+						Then I get an answer [ maybe a good one :) ]
+					</code></pre>
+				</section>
+				<section>
+					<h4>Thanks!!!</h4>
+					<div class="small">@jltutor</div>
+					<img src="assets/images/drupalcamp2017-logo.svg"/>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

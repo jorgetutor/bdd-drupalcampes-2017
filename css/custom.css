@@ -1,0 +1,119 @@
+
+.reveal section h1,
+.reveal section h2,
+.reveal section h3,
+.reveal section h4 {
+  color: #be3272;
+}
+.featured {
+  color: #09D;
+}
+
+.reveal section img {
+  border: none;
+  box-shadow: none;
+}
+.reveal section img.profile-photo {
+  max-width: 120px;
+  border-radius: 50%;
+  border: 7px solid #ccc;
+}
+
+.reveal section img.metadrop-logo {
+  max-width: 120px;
+}
+
+.reveal section .small {
+  font-size: 0.8em;
+}
+.reveal section .xsmall {
+  font-size: 0.6em;
+}
+.reveal section .xxsmall {
+  font-size: 0.4em;
+}
+
+.left {
+  text-align: left;
+}
+.reveal section .center,
+.reveal section table td.center {
+  text-align: center;
+}
+
+.bg-light {
+  background-color: lightblue;
+}
+
+.reveal section .width-medium {
+  max-width: 600px;
+  margin:0 auto;
+}
+
+.sponsor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.sponsor img {
+  height: 40px;
+  float: left;
+}
+.sponsor span {
+  line-height: 40px;
+  height: 40px;
+  float: left;
+  display: block;
+  font-weight: bold;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+.sponsor a,
+.sponsor a:hover,
+.sponsor a:visited {
+  color: blue;
+  text-decoration: red;
+}
+
+.reveal section .drupalcamp-label-pink {
+  background-color: #be3272;
+  color: white;
+  padding: 0.2em 1em;
+  margin:1em;
+  display: inline-block;
+}
+
+.reveal section .drupalcamp-label-blue {
+  background-color: #452ae2;
+  color: white;
+  padding: 0.2em 1em;
+}
+
+.reveal section .drupalcamp-label-blue h1 {
+  color: white;
+  font-size:1em;
+  margin: 0;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.reveal section .col-30 {
+  display: inline-block;
+  vertical-align:top;
+  width: 29%;
+}
+.reveal section .col-70 {
+  display: inline-block;
+  vertical-align:top;
+  width: 69%;
+
+}
+
+ol { counter-reset: item; }
+ol li { display: block; }
+ol li:before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    color: #be3272;
+}
