@@ -4,6 +4,7 @@
 .reveal section h3,
 .reveal section h4 {
   color: #be3272;
+  text-transform: none;
 }
 .featured {
   color: #09D;
