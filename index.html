@@ -63,10 +63,6 @@
 				<!-- START -->
 
 				<section>
-					<p><em>Behaviour Driven Development</em></p>
-				</section>
-
-				<section>
 					<p class="xsmall left"><em>In this session we will talk about:</em></p>
 					<ol>
 						<li>Introduction to BDD</li>
@@ -448,24 +444,24 @@ class Breadcrumb404Test extends BrowserTestBase {
 				</section>
 
 				<section>
-					<div><img src="assets/images/boy-2022551_960_720.png" width="10%"></div>
-					<em>I wish there was a way to automate <strong class="featured">test</strong> use cases</em>
-
-				</section>
-
-				<section>
 					<em>Chapter 5</em>
 					<h2>The BDD Methodology</h2>
 				</section>
 
+
 				<section>
 					<h3>BDD Methodology</h3>
 					<ol class="small">
-						<li>Define a test set for the user story</li>
-						<li>Make the test <strong class="featured">fail</strong></li>
-						<li>Then implement the unit</li>
+						<li>Define a test set for the user story: use cases</li>
+						<li>Make the test <strong class="featured">fail</strong>: there is nothing implemented yet</li>
+						<li>Then implement the unit: development</li>
 						<li>Finally verify that the implementation of the unit makes the tests <strong class="featured">succeed</strong></li>
 					</ol>
+				</section>
+
+				<section>
+					<div><img src="assets/images/boy-2022551_960_720.png" width="10%"></div>
+					<div><em>I wish there was a way to automate <strong class="featured">test</strong> use cases</em></div>
 				</section>
 
 				<section>
@@ -538,7 +534,7 @@ $ behat --version
 							<td>/features (folder)</td>
 						</tr>
 					</table>
-					<p class="xxsmall">Detailed installation and configuration see <a href="" target="_blank">this post</a></p>
+					<p class="xxsmall">Detailed installation and configuration see <a href="http://metadrop.net/articulo/integracion-behat-drupal-pasos-seguir-ejecutar-primeros-test" target="_blank">this post</a></p>
 				</section>
 
 				<section>
@@ -597,11 +593,29 @@ $ behat --config sites/default/behat.yml --tags="register"
 
 				<section>
 					<h3>Behat results</h3>
+					<div class="xsmall">Sucessful execution</div>
 					<pre><code data-trim data-noescape class="smal">
 						48 scenarios (48 passed)
 						773 steps (773 passed)
 					</pre></code>
-					<p class="xxsmall">Example of success execution</p>
+
+					<div class="xsmall">Failed execution</div>
+					<pre><code data-trim data-noescape class="smal">
+					--- Failed scenarios:
+
+					    ../features/authenticated.donation_create.feature:17
+					    ../features/editor.news_edit.feature:9
+
+					21 scenarios (19 passed, 2 failed)
+					289 steps (274 passed, 2 failed, 13 skipped)
+					</pre></code>
+
+				</section>
+
+				<section>
+					<h3>Integrate it with your CI tool!</h3>
+					<img src="assets/images/jenkins.png" width="40%" alt="jenkins screenshot">
+					<img src="assets/images/jenkins2.png" width="40%" alt="jenkins screenshot">
 				</section>
 
 				<section>
@@ -611,8 +625,19 @@ $ behat --config sites/default/behat.yml --tags="register"
 
 				<section>
 					<h3>User Stories</h3>
-					<p class="xsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">register into the site</strong> so that <strong class="featured">I can join the program</strong></em></p>
-					<p class="xsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">pull data from Linkedin while I'm registering into the site</strong> so that <strong class="featured">I can do it easier</strong></em></p>
+					<div class="cols-2">
+
+						<div class="col-70">
+							<p class="small left"><em>As an <strong class="featured">anonymous</strong><br> I want to <strong class="featured">register into the site</strong><br> so that <strong class="featured">I can join the program</strong></em></p>
+							<p></p>
+							<p class="small left"><em>As an <strong class="featured">anonymous</strong><br> I want to <strong class="featured">pull data from Linkedin while I'm registering into the site</strong><br> so that <strong class="featured">I can do it easier</strong></em></p>
+						</div>
+
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
+
+					</div>
 				</section>
 
 				<section>
@@ -620,9 +645,7 @@ $ behat --config sites/default/behat.yml --tags="register"
 					<p class="xsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">register into the site</strong> so that <strong class="featured">I can join the program</strong></em></p>
 					<hr/>
 					<div class="cols-2">
-						<div class="col-30">
-							<img src="assets/graphs/mockup-bdd-example.png" />
-						</div>
+
 						<div class="col-70">
 							<div class="xxsmall">file: anonymous.user_register.feature</div>
 							<pre><code data-trim class="xsmall">
@@ -637,6 +660,10 @@ $ behat --config sites/default/behat.yml --tags="register"
 							</code></pre>
 						</div>
 
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
+
 					</div>
 
 				</section>
@@ -646,9 +673,7 @@ $ behat --config sites/default/behat.yml --tags="register"
 					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">register into the site</strong> so that <strong class="featured">I can join the program</strong></em></p>
 					<hr/>
 					<div class="cols-2">
-						<div class="col-30">
-							<img src="assets/graphs/mockup-bdd-example.png" />
-						</div>
+
 						<div class="col-70">
 							<div class="xxsmall">file: anonymous.user_register.feature</div>
 							<pre><code data-trim class="small">
@@ -681,6 +706,9 @@ $ behat --config sites/default/behat.yml --tags="register"
 								...
 							</code></pre>
 						</div>
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
 					</div>
 				</section>
 
@@ -689,9 +717,7 @@ $ behat --config sites/default/behat.yml --tags="register"
 					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">register into the site</strong> so that <strong class="featured">I can join the program</strong></em></p>
 					<hr/>
 					<div class="cols-2">
-						<div class="col-30">
-							<img src="assets/graphs/mockup-bdd-example.png" />
-						</div>
+
 						<div class="col-70">
 							<div class="xxsmall">file: anonymous.user_register.feature</div>
 							<pre><code data-trim class="small">
@@ -718,6 +744,9 @@ $ behat --config sites/default/behat.yml --tags="register"
 								...
 							</code></pre>
 						</div>
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
 					</div>
 				</section>
 
@@ -726,9 +755,7 @@ $ behat --config sites/default/behat.yml --tags="register"
 					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">register into the site</strong> so that <strong class="featured">I can join the program</strong></em></p>
 					<hr/>
 					<div class="cols-2">
-						<div class="col-30">
-							<img src="assets/graphs/mockup-bdd-example.png" />
-						</div>
+
 						<div class="col-70">
 							<div class="xxsmall">file: anonymous.user_register.feature</div>
 							<pre><code data-trim class="small">
@@ -761,6 +788,9 @@ Scenario: Fails filling fields
    ...
 							</code></pre>
 						</div>
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
 					</div>
 				</section>
 
@@ -773,9 +803,7 @@ Scenario: Fails filling fields
 					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">pull data from Linkedin while I'm registering into the site</strong> so that <strong class="featured">I can do it easier</strong></em></p>
 					<hr/>
 					<div class="cols-2">
-						<div class="col-30">
-							<img src="assets/graphs/mockup-bdd-example.png" />
-						</div>
+
 						<div class="col-70">
 							<div class="xxsmall">file: anonymous.user_register.linkedin.feature</div>
 							<pre><code data-trim class="xsmall">
@@ -789,6 +817,9 @@ Scenario: Fails filling fields
 							</nav>
 							</code></pre>
 						</div>
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
+						</div>
 
 					</div>
 
@@ -799,9 +830,7 @@ Scenario: Fails filling fields
 					<p class="xxsmall"><em>As an <strong class="featured">anonymous</strong> I want to <strong class="featured">pull data from Linkedin while I'm registering into the site</strong> so that <strong class="featured">I can do it easier</strong></em></p>
 					<hr/>
 					<div class="cols-2">
-						<div class="col-30">
-							<img src="assets/graphs/mockup-bdd-example.png" />
-						</div>
+
 						<div class="col-70">
 							<div class="xxsmall">file: anonymous.user_register.linkedin.feature</div>
 							<pre><code data-trim class="small">
@@ -836,6 +865,9 @@ Scenario: Fails filling fields
 								    for "LinkedinTestName"
 								  ...
 							</code></pre>
+						</div>
+						<div class="col-30">
+							<img src="assets/graphs/mockup-bdd-example.png" />
 						</div>
 					</div>
 				</section>
